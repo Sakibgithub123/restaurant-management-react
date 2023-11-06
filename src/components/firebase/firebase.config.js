@@ -7,13 +7,13 @@ import { initializeApp } from "firebase/app";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyDOB5HxnyKJmJ1BX45_ORqULn5faNbBGtE",
-  authDomain: "restautant-management-react.firebaseapp.com",
-  projectId: "restautant-management-react",
-  storageBucket: "restautant-management-react.appspot.com",
-  messagingSenderId: "1009642832702",
-  appId: "1:1009642832702:web:22a2d0fe7eaf53a4e6226f",
-  measurementId: "G-NJJGHESX87"
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AuthDomain,
+  projectId: import.meta.env.VITE_ProjectId,
+  storageBucket: import.meta.env.VITE_StorageBucket,
+  messagingSenderId: import.meta.env.VITE_MessagingSenderId,
+  appId: import.meta.env.VITE_AppId,
+  measurementId: import.meta.env.VITE_MeasurementId
 };
 
 // Initialize Firebase
