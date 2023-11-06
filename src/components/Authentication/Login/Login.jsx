@@ -1,18 +1,34 @@
 
 import { Link,  useLocation, useNavigate } from "react-router-dom";
 import image from "../../../assets/Banner-img/loginimage.jpg"
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 const Login = () => {
     const {signInUser}=useContext(AuthContext)
     const location=useLocation()
     const navigate=useNavigate()
+    const [error,setError]=useState()
+    const [emailError,setEmailError]=useState()
+    const [passwordError,setPasswordError]=useState()
+    
     const handlelogin=(e)=>{
         e.preventDefault()
         const form =new FormData(e.currentTarget)
         const email=form.get('email')
         const password=form.get('password')
         console.log(email,password)
+
+        setError('');
+        setEmailError('');
+        setPasswordError('')
+
+        //errors handle
+        if(email.valueOf === ''){
+            setEmailError('Email field is required')
+        }
+        if(password.valueOf === ''){
+            setPasswordError('Password field is required')
+        }
         signInUser(email,password)
         .then(result=>{
             console.log(result.user)
@@ -20,6 +36,7 @@ const Login = () => {
         })
         .catch(error=>{
             console.error(error )
+            setError('Try agin email or password is wrong')
         })
 
     }
@@ -36,17 +53,26 @@ const Login = () => {
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl shadow">
                 <h3 className="font-semibold text-3xl text-[#FFD700]">Login</h3>
                     <form onSubmit={handlelogin} className="card-body">
+                    {
+                           error && <p className="text-lg text-red-900 font-medium">{error}</p> 
+                        }
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="email" placeholder="email" name="email" className="input input-bordered" required />
+                            <input type="email" placeholder="email" name="email" className="input input-bordered"  />
                         </div>
+                        {
+                           emailError &&  <p className="text-lg text-red-900 font-medium">{emailError}</p> 
+                        }
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="password" placeholder="password" name="password" className="input input-bordered" required />
+                            <input type="password" placeholder="password" name="password" className="input input-bordered"  />
+                            {
+                                passwordError && <p className="text-lg text-red-900 font-medium">{passwordError}</p> 
+                            }
                             <label className="label">
                                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                             </label>
