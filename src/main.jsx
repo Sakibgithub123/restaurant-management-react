@@ -12,6 +12,7 @@ import SignUp from './components/Authentication/SignUp/SignUp.jsx';
 import Login from './components/Authentication/Login/Login.jsx';
 import FoodDetailsPage from './components/FoodDetailsPage/FoodDetailsPage.jsx';
 import AddFood from './components/AddFood/AddFood.jsx';
+import Blog from './components/Blog/Blog.jsx';
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path:"/login",
         element:<Login></Login>
+      },
+      {
+        path:"/blog",
+        element:<Blog></Blog>
       },
       {
         path:"/addFood",

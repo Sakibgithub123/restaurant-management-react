@@ -1,4 +1,5 @@
 
+import { Link } from "react-router-dom";
 import image from "../../../assets/Banner-img/loginimage.jpg"
 const Login = () => {
     return (
@@ -10,20 +11,21 @@ const Login = () => {
                    <img src={image} alt="" className="rounded border-[2px] border-[#FFD700]" />
                 </div>
                 {/* bg-[#e5e9ec] */}
-                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl shadow " style={{backgroundImage: `url(${image})`}}>
+                {/* style={{backgroundImage: `url(${image})`}} */}
+                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl shadow">
                 <h3 className="font-semibold text-3xl text-[#FFD700]">Login</h3>
                     <form className="card-body">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="email" placeholder="email" className="input input-bordered" required />
+                            <input type="email" placeholder="email" name="email" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="password" placeholder="password" className="input input-bordered" required />
+                            <input type="password" placeholder="password" name="password" className="input input-bordered" required />
                             <label className="label">
                                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                             </label>
@@ -33,6 +35,7 @@ const Login = () => {
                             <button className="btn btn-outline text-[#FFD700]">Login</button>
                         </div>
                     </form>
+                    <p className="text-base text-[#392623] font-semibold">Don't Have  any account? <Link to={"/signup"} className="underline text-[#FFD700]">SignUp now</Link> </p>
                 </div>
             </div>
         </div>

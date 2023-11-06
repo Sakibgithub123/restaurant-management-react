@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import logo from "../../../../assets/Banner-img/Restaurant-Logo.png"
 
 const Header = () => {
     const navItems = <>
@@ -22,7 +23,7 @@ const Header = () => {
                         {navItems}
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">Food Garden</a>
+                <a className="btn btn-ghost normal-case text-xl"><img src={logo} width={60} alt="" /></a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 text-xl">
