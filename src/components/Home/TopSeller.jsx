@@ -14,11 +14,15 @@ const TopSeller = ({ topSellFood }) => {
                 </div>
                 </div>
 
-               <div className="flex flex-row gap-10 border-[#392623] border-b-[2px]">
-               <div className="3/5">
-                    <h3 className="text-[#392623] font-semibold text-2xl pl-4">{title}</h3>
-                    {/* <p>{description}</p> */}
+               <div className="flex flex-row justify-between items-center gap-10 border-[#392623] border-b-[2px]">
+               <div className="3/5 text-left pl-4  ">
+                    <h3 className="text-[#392623] font-semibold text-2xl ">{title}</h3>
+                    <div className="flex flex-row gap-5">
+                    <h3 className="text-lg text-[#392623] font-medium">Category</h3>
                     <Link to={`/foodDetails/${id}`}> <button className="bg-[#FFD700] text-[#fff] py-2 px-4 font-semibold rounded">Details</button> </Link>
+                    <button className="bg-[#FFD700]  text-[#fff] py-2 px-4 font-semibold rounded">See All</button>
+                    </div>
+                   
                    
                 </div>
                 <div className="3/5 flex justify-center items-center">
