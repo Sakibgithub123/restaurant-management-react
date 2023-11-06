@@ -1,7 +1,10 @@
 import { NavLink } from "react-router-dom";
 import logo from "../../../../assets/Banner-img/Restaurant-Logo.png"
+import { useContext } from "react";
+import { AuthContext } from "../../../Provider/AuthProvider";
 
 const Header = () => {
+    const { user } = useContext(AuthContext)
     const navItems = <>
         <li><NavLink to={"/"}>Home</NavLink></li>
         <li><NavLink to={"/allfood"}>All Food</NavLink> </li>
@@ -32,8 +35,16 @@ const Header = () => {
             </div>
             <div className="navbar-end gap-4">
                 {/* <a className="btn">Button</a> */}
-                <li className="btn btn-outline text-[#fff]"><NavLink to={"/signup"}>Sign Up</NavLink> </li>
-                <li className="btn btn-outline text-[#fff]"><NavLink to={"/login"}>Login</NavLink> </li>
+                {
+                    user ?
+                        <li className="btn btn-outline text-[#fff]"><NavLink>Sign Up</NavLink> </li>
+                        :
+                        <div>
+                            <li className="btn btn-outline text-[#fff]"><NavLink to={"/signup"}>Sign Up</NavLink> </li>
+                            <li className="btn btn-outline text-[#fff]"><NavLink to={"/login"}>Login</NavLink> </li>
+                        </div>
+                }
+
             </div>
         </div>
     );

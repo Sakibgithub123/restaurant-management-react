@@ -1,7 +1,25 @@
 
 import { Link } from "react-router-dom";
 import image from "../../../assets/Banner-img/loginimage.jpg"
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
 const Login = () => {
+    const {signInUser}=useContext(AuthContext)
+    const handlelogin=(e)=>{
+        e.preventDefault()
+        const form =new FormData(e.currentTarget)
+        const email=form.get('email')
+        const password=form.get('password')
+        console.log(email,password)
+        signInUser(email,password)
+        .then(result=>{
+            console.log(result.user)
+        })
+        .catch(error=>{
+            console.error(error )
+        })
+
+    }
     return (
         <div className="hero min-h-screen ">
            {/* bg-[#5b7c99] */}
@@ -14,7 +32,7 @@ const Login = () => {
                 {/* style={{backgroundImage: `url(${image})`}} */}
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl shadow">
                 <h3 className="font-semibold text-3xl text-[#FFD700]">Login</h3>
-                    <form className="card-body">
+                    <form onSubmit={handlelogin} className="card-body">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
