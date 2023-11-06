@@ -4,7 +4,13 @@ import { useContext } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 
 const Header = () => {
-    const { user } = useContext(AuthContext)
+    const { user,logout } = useContext(AuthContext)
+    const handleLogout=()=>{
+        logout()
+        .then()
+        .catch()
+
+    }
     const navItems = <>
         <li><NavLink to={"/"}>Home</NavLink></li>
         <li><NavLink to={"/allfood"}>All Food</NavLink> </li>
@@ -37,7 +43,7 @@ const Header = () => {
                 {/* <a className="btn">Button</a> */}
                 {
                     user ?
-                        <li className="btn btn-outline text-[#fff]"><NavLink>Sign Up</NavLink> </li>
+                        <button onClick={handleLogout} className="btn btn-outline text-[#fff]">Sign Up </button>
                         :
                         <div>
                             <li className="btn btn-outline text-[#fff]"><NavLink to={"/signup"}>Sign Up</NavLink> </li>
