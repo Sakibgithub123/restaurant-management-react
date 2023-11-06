@@ -10,6 +10,8 @@ import Root from './components/Root/Root.jsx';
 import Home from './components/Home/Home.jsx';
 import SignUp from './components/Authentication/SignUp/SignUp.jsx';
 import Login from './components/Authentication/Login/Login.jsx';
+import FoodDetailsPage from './components/FoodDetailsPage/FoodDetailsPage.jsx';
+import AddFood from './components/AddFood/AddFood.jsx';
 
 const router = createBrowserRouter([
   {
@@ -27,7 +29,16 @@ const router = createBrowserRouter([
       {
         path:"/login",
         element:<Login></Login>
-      }
+      },
+      {
+        path:"/addFood",
+        element:<AddFood></AddFood>,
+      },
+      {
+        path:"/foodDetails/:id",
+        element:<FoodDetailsPage></FoodDetailsPage>,
+        loader:({params})=>fetch(`bloodDonation.json/${params.id}`)
+      },
     ]
   },
 ])
