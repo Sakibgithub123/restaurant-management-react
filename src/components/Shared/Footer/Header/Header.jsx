@@ -43,7 +43,7 @@ const Header = () => {
                 {/* <a className="btn">Button</a> */}
                 {
                     user ?
-                        <button onClick={handleLogout} className="btn btn-outline text-[#fff]">Sign Up </button>
+                        <button onClick={handleLogout} className="btn btn-outline text-[#fff]">LogOut </button>
                         :
                         <div>
                             <li className="btn btn-outline text-[#fff]"><NavLink to={"/signup"}>Sign Up</NavLink> </li>
