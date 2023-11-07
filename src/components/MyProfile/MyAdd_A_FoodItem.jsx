@@ -1,11 +1,53 @@
-
+import { useContext } from 'react';
+import Swal from 'sweetalert2'
+import { AuthContext } from '../Provider/AuthProvider';
 
 const MyAdd_A_FoodItem = () => {
+    const {user}=useContext(AuthContext)
+    const handleMyAddFood=(e)=>{
+        e.preventDefault();
+
+        const form=e.target;
+        const food_name=form.food_name.value;
+        const image=form.image.value;
+        const email=form.email.value;
+        const category=form.category.value;
+        const quantity=form.quantity.value;
+        const price=form.price.value;
+        const addby=form.addby.value;
+        const food_origin=form.food_origin.value;
+        const description=form.description.value;
+
+        const addFood={food_name,image,email,category,quantity,
+             price,addby,food_origin,description}
+             console.log(addFood)
+
+             fetch('http://localhost:5000/food',{
+                method:'POST',
+                headers:{
+                    'content-type':'application/json'
+                },
+                body:JSON.stringify(addFood)
+
+             })
+             .then(res=>res.json())
+             .then(data => {
+                console.log(data);
+                if(data.insertedId){
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Food added successfully!',
+                        icon: 'success',
+                        confirmButtonText: 'Ok'
+                      })
+                }
+             })
+    }
     return (
         <div className="hero min-h-screen my-10">
                 <div className="card flex-shrink-0 w-full max-w-4xl shadow-2xl mt-10 bg-[#2f2626]">
                     <h3 className="text-2xl text-[#fff] font-semibold">Add Food Form</h3>
-                    <form  >
+                    <form onSubmit={handleMyAddFood} >
                        <div className="grid grid-cols-2 gap-4">
                        <div>
                         <div className="form-control">
@@ -19,6 +61,12 @@ const MyAdd_A_FoodItem = () => {
                                 <span className="label-text">Food Image</span>
                             </label>
                             <input type="text" placeholder="Enter Food Image Url" name="image" className="input input-bordered" />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Email</span>
+                            </label>
+                            <input type="email" placeholder="Enter Food Image Url" name="email" readOnly value={user?.email} className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">

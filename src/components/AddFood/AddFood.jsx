@@ -118,7 +118,7 @@ const AddFood = () => {
 
             {/* food table */}
 
-            <div className="overflow-x-auto bg-[#2f2626]">
+            <div className="overflow-x-auto bg-[#2f2626] my-10">
                 <table className="table ">
                     {/* head */}
                     <thead>

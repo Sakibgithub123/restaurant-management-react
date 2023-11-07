@@ -2,6 +2,13 @@ import { Link } from "react-router-dom";
 
 
 const MyAddedFoodItems = () => {
+    const [tmyAddedFood, setMyAddedFood] = useState([]);
+    
+    useEffect(() => {
+        fetch('http://localhost:5000/food')
+            .then(res => res.json())
+            .then(data => setTopSellFood(data))
+    }, [])
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             <div className="card w-96 bg-[#2f2626] shadow-xl my-5 ">
