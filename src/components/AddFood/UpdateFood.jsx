@@ -33,10 +33,10 @@ const UpdateFood = () => {
              .then(res=>res.json())
              .then(data => {
                 console.log(data);
-                if(data.insertedId){
+                if(data.modifiedCount > 0 ){
                     Swal.fire({
                         title: 'Success!',
-                        text: 'Food added successfully!',
+                        text: 'Food item updated successfully!',
                         icon: 'success',
                         confirmButtonText: 'Ok'
                       })
