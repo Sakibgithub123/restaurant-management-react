@@ -8,8 +8,9 @@ import Cheifs from "../Cheifs/Cheifs";
 
 const Home = () => {
     const [topSellFood, setTopSellFood] = useState([]);
+    const [foodLength,seFoodLength]=useState(6)
     useEffect(() => {
-        fetch('bloodDonation.json')
+        fetch('http://localhost:5000/food')
             .then(res => res.json())
             .then(data => setTopSellFood(data))
     }, [])
@@ -26,9 +27,10 @@ const Home = () => {
                 <h3 className="my-5 font-semibold text-4xl text-[#FFD700] italic">Top Selling Food</h3>
                 <div className="grid grid-cols-2 gap-10">
                     {
-                        topSellFood.map(topSellFood => <TopSeller key={topSellFood.id} topSellFood={topSellFood} ></TopSeller>)
+                        topSellFood.slice(0,foodLength).map(topSellFood => <TopSeller key={topSellFood.id} topSellFood={topSellFood} ></TopSeller>)
                     }
                 </div>
+                <button className="my-5 w-1/3 bg-[#FFD700]  text-[#fff] py-2 px-4 font-semibold rounded">See All</button>
             </div>
             <div className="my-5">
                 <Services></Services>

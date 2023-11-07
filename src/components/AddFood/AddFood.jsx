@@ -38,7 +38,7 @@ const AddFood = () => {
                         title: 'Success!',
                         text: 'Food added successfully!',
                         icon: 'success',
-                        confirmButtonText: 'ok'
+                        confirmButtonText: 'Ok'
                       })
                 }
              })

@@ -41,9 +41,9 @@ const router = createBrowserRouter([
         element:<AddFood></AddFood>,
       },
       {
-        path:"/foodDetails/:id",
+        path:"/foodDetails/:_id",
         element:<FoodDetailsPage></FoodDetailsPage>,
-        loader:({params})=>fetch(`bloodDonation.json/${params.id}`)
+        loader:({params})=>fetch(`http://localhost:5000/food/${params._id}`)
       },
     ]
   },

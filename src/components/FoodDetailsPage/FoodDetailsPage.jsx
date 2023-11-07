@@ -1,14 +1,17 @@
-// import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 import banner4 from "../../assets/Banner-img/banner4.jpg"
 
 const FoodDetailsPage = () => {
-    // const singleFood = useLoaderData()
+    const singleFoods = useLoaderData()
+    const {_id}=useParams()
+    const idInit=parseInt(_id)
+    const singleFood=singleFoods.find(singleFood=>singleFood._id === idInit )
     return (
         <div className="max-w-5xl mx-auto my-10 font-lato">
             <div className="flex flex-row rounded-lg">
                 <img className="rounded" src={banner4} alt="" />
                 <div className="text-left pl-8 space-y-4">
-                    <h3 className="text-xl text-[#FFD700] font-semibold">Burger</h3>
+                    <h3 className="text-xl text-[#FFD700] font-semibold">Burger{singleFood.price}</h3>
                     <h2 className="text-xl text-[#392623] font-semibold">Price : $320</h2>
                     <div className="flex flex-row gap-5">
                         <h2 className="text-base bg-[#52ea63] p-2 rounded-lg text-[#fff] font-semibold">Category</h2>
