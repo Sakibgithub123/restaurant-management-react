@@ -1,9 +1,11 @@
+import { useLoaderData } from "react-router-dom";
 import FoodTableItem from "./FoodTableItem";
 import Swal from 'sweetalert2'
 
 
 
 const AddFood = () => {
+    const foodItems=useLoaderData()
 
     const handleAddFood=(e)=>{
         e.preventDefault();
@@ -125,7 +127,11 @@ const AddFood = () => {
                     <tbody>
                         {/* row 1 */}
 
-                        <FoodTableItem></FoodTableItem>
+                        {
+                            foodItems.map(foodItem=><FoodTableItem key={foodItem._id} foodItem={foodItem} ></FoodTableItem>)
+                        }
+
+                        
 
                     </tbody>
 

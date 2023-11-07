@@ -14,6 +14,7 @@ import FoodDetailsPage from './components/FoodDetailsPage/FoodDetailsPage.jsx';
 import AddFood from './components/AddFood/AddFood.jsx';
 import Blog from './components/Blog/Blog.jsx';
 import AuthProvider from './components/Provider/AuthProvider.jsx';
+import UpdateFood from './components/AddFood/UpdateFood.jsx';
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,12 @@ const router = createBrowserRouter([
       {
         path:"/addFood",
         element:<AddFood></AddFood>,
+        loader:()=>fetch('http://localhost:5000/food')
+      },
+      {
+        path:"/updateFood/:id",
+        element:<UpdateFood></UpdateFood>,
+        loader:({params})=>fetch(`http://localhost:5000/food/${params.id}`)
       },
       {
         path:"/foodDetails/:_id",
