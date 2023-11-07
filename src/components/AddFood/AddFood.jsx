@@ -1,4 +1,5 @@
 import FoodTableItem from "./FoodTableItem";
+import Swal from 'sweetalert2'
 
 
 
@@ -32,6 +33,14 @@ const AddFood = () => {
              .then(res=>res.json())
              .then(data => {
                 console.log(data);
+                if(data.insertedId){
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Food added successfully!',
+                        icon: 'success',
+                        confirmButtonText: 'ok'
+                      })
+                }
              })
     }
     return (
