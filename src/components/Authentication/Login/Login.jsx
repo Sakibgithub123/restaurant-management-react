@@ -1,4 +1,4 @@
-
+import google from "../../../assets/Banner-img/Google.png"
 import { Link,  useLocation, useNavigate } from "react-router-dom";
 import image from "../../../assets/Banner-img/loginimage.jpg"
 import { useContext, useState } from "react";
@@ -43,16 +43,16 @@ const Login = () => {
     return (
         <div className="hero min-h-screen ">
            {/* bg-[#5b7c99] */}
-            <div className="hero-content flex-col lg:flex-row">
-
-                <div className="text-center lg:text-left">
-                   <img src={image} alt="" className="rounded border-[2px] border-[#FFD700]" />
-                </div>
+                {/* <div className="text-center lg:text-left">
+                   <img src={image} alt="" className="rounded border-[2px] border-[#2f2626]" />
+                </div> */}
                 {/* bg-[#e5e9ec] */}
                 {/* style={{backgroundImage: `url(${image})`}} */}
-                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl shadow">
-                <h3 className="font-semibold text-3xl text-[#FFD700]">Login</h3>
+                <div className="card flex-shrink-0 w-full max-w-md shadow-2xl bg-[#2f2626]">
+                <h3 className="font-semibold text-2xl text-[#fff]">Login Here</h3>
+                {/* <h3 className="font-semibold text-3xl  border p-2 border-[#fff]  text-[#fff]">Login Here</h3> */}
                     <form onSubmit={handlelogin} className="card-body">
+                    <button className="font-semibold text-lg  border p-2 border-[#fff]  text-[#fff] flex flex-row justify-center"><span>Login with Google</span> <img className="pl-2" width={23} height={5} src={google} alt="" /></button>
                     {
                            error && <p className="text-lg text-red-900 font-medium">{error}</p> 
                         }
@@ -79,12 +79,11 @@ const Login = () => {
                         </div>
                         <div className="form-control mt-6">
                             {/* <button className="py-3 px-2 rounded font-semibold text-2xl bg-[#FFD700] text-[#fff]">Login</button> */}
-                            <button className="btn btn-outline text-[#FFD700]">Login</button>
+                            <button type="submit" className="btn btn-outline text-[#fff]">Login</button>
                         </div>
                     </form>
-                    <p className="text-base text-[#392623] font-semibold">Don't Have  any account? <Link to={"/signup"} className="underline text-[#FFD700]">SignUp now</Link> </p>
+                    <p className="text-base text-[#fff] font-semibold">Don't Have  any account? <Link to={"/signup"} className="underline text-[#894444]">SignUp</Link> </p>
                 </div>
-            </div>
         </div>
     );
 };

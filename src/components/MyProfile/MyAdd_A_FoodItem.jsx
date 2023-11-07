@@ -1,58 +1,11 @@
-import { useLoaderData } from "react-router-dom";
-import FoodTableItem from "./FoodTableItem";
-import Swal from 'sweetalert2'
-import { useState } from "react";
 
 
-
-const AddFood = () => {
-    const loaderfoodItems=useLoaderData()
-    const [foodItems,setFoodItem]=useState(loaderfoodItems)
-
-    const handleAddFood=(e)=>{
-        e.preventDefault();
-
-        const form=e.target;
-        const food_name=form.food_name.value;
-        const image=form.image.value;
-        const category=form.category.value;
-        const quantity=form.quantity.value;
-        const price=form.price.value;
-        const addby=form.addby.value;
-        const food_origin=form.food_origin.value;
-        const description=form.description.value;
-
-        const addFood={food_name,image ,category,quantity,
-             price,addby,food_origin,description}
-             console.log(addFood)
-
-             fetch('http://localhost:5000/food',{
-                method:'POST',
-                headers:{
-                    'content-type':'application/json'
-                },
-                body:JSON.stringify(addFood)
-
-             })
-             .then(res=>res.json())
-             .then(data => {
-                console.log(data);
-                if(data.insertedId){
-                    Swal.fire({
-                        title: 'Success!',
-                        text: 'Food added successfully!',
-                        icon: 'success',
-                        confirmButtonText: 'Ok'
-                      })
-                }
-             })
-    }
+const MyAdd_A_FoodItem = () => {
     return (
-        <div>
-            <div className="hero min-h-screen my-10">
+        <div className="hero min-h-screen my-10">
                 <div className="card flex-shrink-0 w-full max-w-4xl shadow-2xl mt-10 bg-[#2f2626]">
                     <h3 className="text-2xl text-[#fff] font-semibold">Add Food Form</h3>
-                    <form onSubmit={handleAddFood} >
+                    <form  >
                        <div className="grid grid-cols-2 gap-4">
                        <div>
                         <div className="form-control">
@@ -115,41 +68,7 @@ const AddFood = () => {
                     </form>
                 </div>
             </div>
-
-            {/* food table */}
-
-            <div className="overflow-x-auto bg-[#2f2626]">
-                <table className="table ">
-                    {/* head */}
-                    <thead>
-                        <tr className="text-lg text-[#fff]">
-                            <th>Food Name</th>
-                            <th>Food Image</th>
-                            <th>Food Category</th>
-                            <th>quantity</th>
-                            <th>Price</th>
-                            <th>Add By</th>
-                            <th>Food Origin</th>
-                            <th>Description </th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody className="text-[#c8b5b5] font-medium text-lg">
-                        {/* row 1 */}
-
-                        {
-                            foodItems.map(foodItem=><FoodTableItem key={foodItem._id} foodItem={foodItem} foodItems={foodItems} setFoodItem={setFoodItem} ></FoodTableItem>)
-                        }
-
-                        
-
-                    </tbody>
-
-
-                </table>
-            </div>
-        </div>
     );
 };
 
-export default AddFood;
+export default MyAdd_A_FoodItem;

@@ -64,14 +64,15 @@ const SignUp = () => {
     return (
         <div className="hero min-h-screen ">
            {/* bg-[#5b7c99] */}
-            <div className="hero-content flex-col lg:flex-row">
+            {/* <div className="hero-content flex-col lg:flex-row"> */}
 
-                <div className="text-center lg:text-left">
-                   <img src={image} alt="" className="rounded border-[2px] border-[#FFD700]" />
-                </div>
-                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl shadow-[#FFD700] bg-[#e5e9ec]">
-                <h3 className="font-semibold text-3xl text-[#FFD700]">SignUp</h3>
+                {/* <div className="text-center lg:text-left">
+                   <img src={image} alt="" className="rounded border-[2px] border-[#2f2626]" />
+                </div> */}
+                <div className="card flex-shrink-0 w-full max-w-md shadow-2xl  my-20 bg-[#2f2626]">
+                <h3 className="font-semibold text-2xl  border p-2 border-[#fff]  text-[#fff]">Signup Here</h3>
                     <form onSubmit={handleSignup} className="card-body">
+                        <p className="text-[#fff] uppercase text-base">If you dont have any accout please signup now.</p>
                         {
                             error && <p className="text-lg text-red-900 font-medium">{error}</p> 
                         }
@@ -112,13 +113,14 @@ const SignUp = () => {
                             passwordError && <p className="text-lg text-red-900 font-medium">{passwordError}</p> 
                         }
                         <div className="form-control mt-6">
-                            <button type="submit" className="py-3 px-2 rounded font-semibold text-2xl bg-[#FFD700] text-[#fff]">SignUp</button>
+                            {/* <button type="submit" className="py-3 px-2 rounded font-semibold text-2xl bg-[#FFD700] text-[#fff]">SignUp</button> */}
+                            <button type="submit" className="btn btn-outline text-[#fff]">SignUp</button>
                         </div>
                     </form>
-                    <p className="text-base text-[#392623] font-semibold">Have you any account? <Link to={"/login"} className="underline text-[#FFD700]">Login now</Link> </p>
+                    <p className="text-base text-[#fff] font-semibold">Have you any account? <Link to={"/login"} className="underline text-[#894444]">Login</Link> </p>
                 </div>
             </div>
-        </div>
+        // </div>
     );
 };
 

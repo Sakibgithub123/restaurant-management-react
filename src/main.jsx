@@ -15,24 +15,33 @@ import AddFood from './components/AddFood/AddFood.jsx';
 import Blog from './components/Blog/Blog.jsx';
 import AuthProvider from './components/Provider/AuthProvider.jsx';
 import UpdateFood from './components/AddFood/UpdateFood.jsx';
+import AllFood from './components/AllFood/AllFood.jsx';
+import AllFoodPage from './components/AllFood/AllFoodPage.jsx';
+import AboutUs from './components/AboutUs/AboutUs.jsx';
+import MyAddedFoodItems from './components/MyProfile/MyAddedFoodItems.jsx';
+import MyAdd_A_FoodItem from './components/MyProfile/MyAdd_A_FoodItem.jsx';
+import MyOrderPage from './components/MyProfile/MyOrderPage.jsx';
+import ErrorPage from './components/ErrorPage/ErrorPage.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement:<ErrorPage></ErrorPage>,
     children:[
       {
         path:"/",
         element:<Home></Home>
       },
       {
-        path:"/signup",
-        element:<SignUp></SignUp>
+        path:"/about",
+        element:<AboutUs></AboutUs>
       },
       {
-        path:"/login",
-        element:<Login></Login>
+        path:"/allfood",
+        element:<AllFoodPage></AllFoodPage>,
       },
+     
       {
         path:"/blog",
         element:<Blog></Blog>
@@ -52,6 +61,26 @@ const router = createBrowserRouter([
         element:<FoodDetailsPage></FoodDetailsPage>,
         loader:({params})=>fetch(`http://localhost:5000/food/${params.id}`)
        
+      },
+      {
+        path:"/myAddedFood",
+        element:<MyAddedFoodItems></MyAddedFoodItems>
+      },
+      {
+        path:"/myAddAfoodItem",
+        element:<MyAdd_A_FoodItem></MyAdd_A_FoodItem>
+      },
+      {
+        path:"/myOrderPage",
+        element:<MyOrderPage></MyOrderPage>
+      },
+      {
+        path:"/signup",
+        element:<SignUp></SignUp>
+      },
+      {
+        path:"/login",
+        element:<Login></Login>
       },
     ]
   },

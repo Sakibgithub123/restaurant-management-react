@@ -4,9 +4,9 @@ import { BsCheckAll } from "react-icons/bs";
 const Blog = () => {
     return (
         <div className="max-w-2xl mx-auto text-center">
-            <h3 className="text-4xl text-[#FFD700] font-semibold my-5">Blog Page</h3>
-            <h3 className="text-4xl font-semibold text-[#FFD700] my-5 italic">Questions & Answered</h3>
-            <img className="border-[2px] border-[#FFD700]" src={databaseImg} alt="" />
+            <h3 className="text-4xl text-[#894444] font-semibold my-5">Blog Page</h3>
+            <h3 className="text-4xl font-semibold text-[#2f2626] my-5 italic">Questions & Answered</h3>
+            <img className="border-[2px] border-[#2f2626]" src={databaseImg} alt="" />
             <div className="space-y-3 my-5 text-left pl-10">
                 <h3 className="text-3xl text-[#392623] font-semibold"><li>What is One way data binding?</li></h3>
                 <p className="text-base text-[#392623] font-semibold leading-8 flex flex-row"><span className="text-3xl text-[#392623] pr-2"><BsCheckAll></BsCheckAll></span> <span>Lorem ipsum dolor sit amet.</span></p>

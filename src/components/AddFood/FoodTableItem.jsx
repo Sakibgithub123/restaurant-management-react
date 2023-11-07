@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2'
-const FoodTableItem = ({foodItem}) => {
+const FoodTableItem = ({foodItem,foodItems,setFoodItem}) => {
 
     const {_id,food_name,image ,category,quantity,
         price,addby,food_origin,description}=foodItem;
@@ -30,6 +30,9 @@ const FoodTableItem = ({foodItem}) => {
                         text: "Your food item has been deleted.",
                         icon: "success"
                       });
+                      const remainingFood=foodItems.filter(foodItem=>foodItem._id !== _id);
+                      setFoodItem(remainingFood);
+                      
 
                 }
               })
