@@ -22,6 +22,7 @@ import MyAddedFoodItems from './components/MyProfile/MyAddedFoodItems.jsx';
 import MyAdd_A_FoodItem from './components/MyProfile/MyAdd_A_FoodItem.jsx';
 import MyOrderPage from './components/MyProfile/MyOrderPage.jsx';
 import ErrorPage from './components/ErrorPage/ErrorPage.jsx';
+import UpdateMyAddedFood from './components/MyProfile/UpdateMyAddedFood.jsx';
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,11 @@ const router = createBrowserRouter([
       {
         path:"/updateFood/:id",
         element:<UpdateFood></UpdateFood>,
+        loader:({params})=>fetch(`http://localhost:5000/food/${params.id}`)
+      },
+      {
+        path:"/updateMyAddFood/:id",
+        element:<UpdateMyAddedFood></UpdateMyAddedFood>,
         loader:({params})=>fetch(`http://localhost:5000/food/${params.id}`)
       },
       {
