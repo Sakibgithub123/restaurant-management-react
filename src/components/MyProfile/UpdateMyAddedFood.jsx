@@ -2,9 +2,10 @@ import { useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2'
 
 const UpdateMyAddedFood = () => {
-    const updateMyAddedFoodItem=useLoaderData()
-    console.log(updateMyAddedFoodItem)
-    const {_id,food_name,image,email,category,quantity,price,addby,food_origin,description}=updateMyAddedFoodItem;
+    const myAddFood= useLoaderData()
+    console.log(myAddFood)
+    const {_id,food_name,image,email,category,quantity,price,addby,food_origin,description}=myAddFood;
+
     const handleUpdateFood=(e)=>{
         e.preventDefault();
 
@@ -23,7 +24,7 @@ const UpdateMyAddedFood = () => {
              price,addby,food_origin,description}
              console.log(updateFood)
 
-             fetch(`http://localhost:5000/food/${_id}`,{
+             fetch(`http://localhost:5000/myfood/${_id}`,{
                 method:'PUT',
                 headers:{
                     'content-type':'application/json'

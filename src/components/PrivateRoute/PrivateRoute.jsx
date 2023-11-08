@@ -4,7 +4,7 @@ import { Navigate, useLocation } from "react-router-dom";
 import loadingimg from "../../assets/Banner-img/loading.png"
 
 
-const PrivateRoute = () => {
+const PrivateRoute = ({children}) => {
     const {user,loading}=useContext(AuthContext);
     const location=useLocation()
     if(loading){
@@ -12,7 +12,7 @@ const PrivateRoute = () => {
     }
 
     if(user){
-        return Children;
+        return children;
     }
     return <Navigate state={location.pathname} to={"/login"}></Navigate>
 };

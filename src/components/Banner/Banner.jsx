@@ -9,13 +9,13 @@ const Banner = () => {
 
             <div id="slide1" className="carousel-item relative w-full">
            
-                <img src={banner1} className="w-full" />
+                <img src={banner1}  className="w-full opacity-70" />
                
                 <div className="max-w-md absolute top-[150px] right-[350px]">
                     <h1 className="mb-5 text-5xl font-bold text-[#2f2626] italic">Delicious Foods You Find Here.</h1>
                     <p className="mb-5 text-[#fff] text-lg">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                     <div className="space-x-4">
-                        <button className="bg-[#FFD700] text-[#fff] py-2 px-4 font-semibold  rounded">Get Started</button>
+                        <button className="bg-[#894444] text-[#fff] py-2 px-4 font-semibold  rounded">Get Started</button>
                         <button className="bg-[#2f2626] text-[#fff] py-2 px-4 font-semibold rounded">Order Now</button>
                     </div>
                 </div>
@@ -25,21 +25,45 @@ const Banner = () => {
                 </div>
             </div>
             <div id="slide2" className="carousel-item relative w-full">
-                <img src={banner2} className="w-full" />
+                <img src={banner2} className="w-full opacity-70" />
+                <div className="max-w-md absolute top-[150px] right-[350px]">
+                    <h1 className="mb-5 text-5xl font-bold text-[#2f2626] italic">Delicious Foods You Find Here.</h1>
+                    <p className="mb-5 text-[#fff] text-lg">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                    <div className="space-x-4">
+                        <button className="bg-[#894444] text-[#fff] py-2 px-4 font-semibold  rounded">Get Started</button>
+                        <button className="bg-[#2f2626] text-[#fff] py-2 px-4 font-semibold rounded">Order Now</button>
+                    </div>
+                </div>
                 <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                     <a href="#slide1" className="btn btn-circle">❮</a>
                     <a href="#slide3" className="btn btn-circle">❯</a>
                 </div>
             </div>
             <div id="slide3" className="carousel-item relative w-full">
-                <img src={banner3} className="w-full" />
+                <img src={banner3} className="w-full opacity-70" />
+                <div className="max-w-md absolute top-[150px] right-[350px]">
+                    <h1 className="mb-5 text-5xl font-bold text-[#2f2626] italic">Delicious Foods You Find Here.</h1>
+                    <p className="mb-5 text-[#fff] text-lg">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                    <div className="space-x-4">
+                        <button className="bg-[#894444] text-[#fff] py-2 px-4 font-semibold  rounded">Get Started</button>
+                        <button className="bg-[#2f2626] text-[#fff] py-2 px-4 font-semibold rounded">Order Now</button>
+                    </div>
+                </div>
                 <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                     <a href="#slide2" className="btn btn-circle">❮</a>
                     <a href="#slide4" className="btn btn-circle">❯</a>
                 </div>
             </div>
             <div id="slide4" className="carousel-item relative w-full">
-                <img src={banner4} className="w-full" />
+                <img src={banner4} className="w-full opacity-70" />
+                <div className="max-w-md absolute top-[150px] right-[350px]">
+                    <h1 className="mb-5 text-5xl font-bold text-[#2f2626] italic">Delicious Foods You Find Here.</h1>
+                    <p className="mb-5 text-[#fff] text-lg">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                    <div className="space-x-4">
+                        <button className="bg-[#894444] text-[#fff] py-2 px-4 font-semibold  rounded">Get Started</button>
+                        <button className="bg-[#2f2626] text-[#fff] py-2 px-4 font-semibold rounded">Order Now</button>
+                    </div>
+                </div>
                 <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                     <a href="#slide3" className="btn btn-circle">❮</a>
                     <a href="#slide1" className="btn btn-circle">❯</a>

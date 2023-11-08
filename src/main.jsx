@@ -23,6 +23,7 @@ import MyAdd_A_FoodItem from './components/MyProfile/MyAdd_A_FoodItem.jsx';
 import MyOrderPage from './components/MyProfile/MyOrderPage.jsx';
 import ErrorPage from './components/ErrorPage/ErrorPage.jsx';
 import UpdateMyAddedFood from './components/MyProfile/UpdateMyAddedFood.jsx';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,7 @@ const router = createBrowserRouter([
       {
         path:"/allfood",
         element:<AllFoodPage></AllFoodPage>,
+        loader:()=>fetch('http://localhost:5000/foodcounts')
       },
      
       {
@@ -58,13 +60,13 @@ const router = createBrowserRouter([
         loader:({params})=>fetch(`http://localhost:5000/food/${params.id}`)
       },
       {
-        path:"/updateMyAddFood/:id",
+        path:"/updateMyFood/:pid",
         element:<UpdateMyAddedFood></UpdateMyAddedFood>,
-        loader:({params})=>fetch(`http://localhost:5000/myfood/${params.id}`)
+        loader:({params})=>fetch(`http://localhost:5000/myfood/${params.pid}`)
       },
       {
         path:"/foodDetails/:id",
-        element:<FoodDetailsPage></FoodDetailsPage>,
+        element:<PrivateRoute><FoodDetailsPage></FoodDetailsPage></PrivateRoute>,
         loader:({params})=>fetch(`http://localhost:5000/food/${params.id}`)
        
       },

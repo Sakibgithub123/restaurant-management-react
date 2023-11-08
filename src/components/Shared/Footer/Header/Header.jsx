@@ -17,24 +17,34 @@ const Header = () => {
         <li><NavLink to={"/blog"}>Blog</NavLink> </li>
         <li><NavLink to={"/allfood"}>All Food</NavLink> </li>
         <li><NavLink to={"/addFood"}>Add Food</NavLink> </li>
-        <div className="flex-none">
-            <ul className="menu menu-horizontal px-1">
-                {/* <li><a>Link</a></li> */}
-                <li>
-                    <details>
-                        <summary>
-                            My Profile
-                        </summary>
-                        <ul className="p-2 bg-[#2f2626] z-10">
-                            <li><NavLink to={"/myAddedFood"}>My added food items</NavLink></li>
-                            <li><NavLink to={"/myAddAfoodItem"}>Add a food item</NavLink></li>
-                            <li><NavLink to={"/myOrderPage"}>My ordered food items</NavLink></li>
-                            
-                        </ul>
-                    </details>
-                </li>
-            </ul>
-        </div>
+        {
+            user ?
+                <div className="flex-none">
+                    <ul className="menu menu-horizontal px-1">
+                        {/* <li><a>Link</a></li> */}
+                        <li>
+                            <details>
+                                <summary>
+                                    My Profile<div className="avatar">
+                                        <div className="w-8 rounded">
+                                            <img src={user.photoURL}  />
+                                        </div>
+                                    </div>
+                                </summary>
+                                <ul className="p-2 bg-[#2f2626] z-10">
+                                    <li><NavLink to={"/myAddedFood"}>My added food items</NavLink></li>
+                                    <li><NavLink to={"/myAddAfoodItem"}>Add a food item</NavLink></li>
+                                    <li><NavLink to={"/myOrderPage"}>My ordered food items</NavLink></li>
+
+                                </ul>
+                            </details>
+                        </li>
+                    </ul>
+                </div>
+                : ""
+
+        }
+
 
 
 
@@ -54,7 +64,7 @@ const Header = () => {
                 <a className="btn btn-ghost normal-case text-xl"><img src={logo} width={60} alt="" /></a>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1 text-xl text-[#fff] bg-[#894444]">
+                <ul className="menu menu-horizontal  text-xl text-[#fff] bg-[#894444] bg-opacity-12 px-4 rounded-lg">
                     {navItems}
                 </ul>
             </div>

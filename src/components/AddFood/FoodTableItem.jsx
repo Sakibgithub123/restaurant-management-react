@@ -60,8 +60,8 @@ const FoodTableItem = ({foodItem,foodItems,setFoodItem}) => {
                 <td> {food_origin} </td>
                 <td>{description}</td>
                 <th>
-                    <Link to={`/updateFood/${_id}`}><button className="btn btn-ghost btn-xs">Edit</button></Link>
-                    <button onClick={()=>handleDelete(_id)} className="btn btn-ghost btn-xs">Delete</button>
+                    <Link to={`/updateFood/${_id}`}><button className="btn btn-outline btn-xs text-success">Edit</button></Link>
+                    <button onClick={()=>handleDelete(_id)} className="btn btn-outline btn-xs text-warning">Delete</button>
                 </th>
             </tr>
             

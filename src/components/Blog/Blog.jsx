@@ -5,17 +5,17 @@ const Blog = () => {
     return (
         <div className="max-w-2xl mx-auto text-center">
             <h3 className="text-4xl text-[#894444] font-semibold my-5">Blog Page</h3>
-            <h3 className="text-4xl font-semibold text-[#2f2626] my-5 italic">Questions & Answered</h3>
+            <h3 className="text-lg font-semibold text-[#2f2626] my-5 italic">Questions & Answered</h3>
             <img className="border-[2px] border-[#2f2626]" src={databaseImg} alt="" />
             <div className="space-y-3 my-5 text-left pl-10">
-                <h3 className="text-3xl text-[#392623] font-semibold"><li>What is One way data binding?</li></h3>
+                <h3 className="text-3xl text-[rgb(57,38,35)] font-semibold"><li>What is One way data binding?</li></h3>
                 <p className="text-base text-[#392623] font-semibold leading-8 flex flex-row"><span className="text-3xl text-[#392623] pr-2"><BsCheckAll></BsCheckAll></span> <span>In React, one-way data binding, also known as "unidirectional data flow," is a fundamental concept that describes how data is passed between components within a React application.
                      In a one-way data binding system, data flows in a single direction, from parent components to child components, and child components cannot directly modify the data in their parent components. </span></p>
                 <h3 className="text-3xl text-[#392623] font-semibold"><li>What is NPM in node.js?</li></h3>
                 <p className="text-base text-[#392623] font-semibold leading-8 flex flex-row"><span className="text-3xl text-[#392623] pr-2"><BsCheckAll></BsCheckAll></span> <span>NPM stands for "Node Package Manager," and it is a package manager for JavaScript and Node.js.
                      NPM is used to manage and distribute open-source libraries and packages of code that can be easily integrated into Node.js applications.</span></p>
                 <h3 className="text-3xl text-[#392623] font-semibold"><li>Different between Mongodb database vs mySQL database.</li></h3>
-                <p className="text-base text-[#392623] font-semibold leading-8 flex flex-row"><span className="text-3xl text-[#392623] pr-2"><BsCheckAll></BsCheckAll></span> <span>Lorem ipsum dolor sit amet.</span></p>
+                <p className="text-base text-[#392623] font-semibold leading-8 flex flex-row"><span className="text-3xl text-[#392623] pr-2"><BsCheckAll></BsCheckAll></span> <span>Differences are here :</span></p>
                 <div className="overflow-x-auto">
                     <table className="table table-zebra">
                         {/* head */}

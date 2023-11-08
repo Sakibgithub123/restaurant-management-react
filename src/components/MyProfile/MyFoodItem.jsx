@@ -11,7 +11,7 @@ const MyFoodItem = ({myAddedFood}) => {
                         <h2 className="text-base bg-[#894444] p-2 rounded-lg text-[#fff] font-semibold">{food_name}</h2>
                         <h2 className="text-base bg-secondary p-2 rounded-lg text-[#fff] font-semibold">{price}</h2>
                     </div>
-                    <Link to={`/updateMyAddFood/${_id}`}> <button type="submit" className="btn w-full btn-outline text-[#fff]">Update</button></Link>
+                    <Link to={`/updateMyFood/${_id}`}> <button type="submit" className="btn w-full btn-outline text-[#fff]">Update</button></Link>
                 </div>
             </div>
     );

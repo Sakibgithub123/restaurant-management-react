@@ -61,9 +61,9 @@ const Login = () => {
                 </div> */}
                 {/* bg-[#e5e9ec] */}
                 {/* style={{backgroundImage: `url(${image})`}} */}
-                <div className="card flex-shrink-0 w-full max-w-md shadow-2xl bg-[#2f2626]">
+                <div className="card flex-shrink-0 w-full max-w-md shadow-2xl my-20 bg-[#2f2626]">
                 <h3 className="font-semibold text-2xl text-[#fff]">Login Here</h3>
-                <button onClick={handleGoogleLogin} className="font-semibold text-lg  border p-2 border-[#fff]  text-[#fff] flex flex-row justify-center"><span>Login with Google</span> <img className="pl-2" width={23} height={5} src={google} alt="" /></button>
+                <button onClick={handleGoogleLogin} className="font-semibold text-lg  border p-2 border-[#fff]  text-[#fff] flex flex-row justify-center mt-3"><span>Login with Google</span> <img className="pl-2" width={23} height={5} src={google} alt="" /></button>
                 {/* <h3 className="font-semibold text-3xl  border p-2 border-[#fff]  text-[#fff]">Login Here</h3> */}
                     <form onSubmit={handlelogin} className="card-body">
                     {
