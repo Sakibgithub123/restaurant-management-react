@@ -17,7 +17,7 @@ const MyOrderPage = () => {
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {
-                 myOrderFoods.map(myorder=><MyOrderPage2 key={myorder._id} myorder={myorder}></MyOrderPage2>)
+                 myOrderFoods.map(myorder=><MyOrderPage2 key={myorder._id} myorder={myorder} myOrderFoods={myOrderFoods} setMyOrderFood={setMyOrderFood}></MyOrderPage2>)
             }
             
         </div>
