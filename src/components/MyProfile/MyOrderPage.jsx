@@ -1,21 +1,24 @@
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
+import MyOrderPage2 from "./MyOrderPage2";
 
 
 const MyOrderPage = () => {
+    const [myOrderFoods, setMyOrderFood] = useState([]);
+    const {user}=useContext(AuthContext)
+    const email=user.email;
+    
+    useEffect(() => {
+        fetch(`http://localhost:5000/myorderfood/${email}`)
+            .then(res => res.json())
+            .then(data => setMyOrderFood(data))
+    }, [])
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            <div className="card w-96 bg-[#2f2626] shadow-xl my-5 ">
-                <figure><img src="" alt="Shoes" /></figure>
-                <div className="card-body space-y-2">
-                    <div className="card-actions justify-center gap-20">
-                        <h2 className="text-base bg-[#894444] p-2 rounded-lg text-[#fff] font-semibold">Name</h2>
-                        <h2 className="text-base bg-secondary p-2 rounded-lg text-[#fff] font-semibold">Price</h2>
-                        <h2 className="text-base bg-[#894444] p-2 rounded-lg text-[#fff] font-semibold">Time</h2>
-                        <h2 className="text-base bg-secondary p-2 rounded-lg text-[#fff] font-semibold">Food Owner</h2>
-                    </div>
-                    <Link to=""> <button type="submit" className="btn w-full btn-outline text-[#fff]">Delete</button></Link>
-                </div>
-            </div>
+            {
+                 myOrderFoods.map(myorder=><MyOrderPage2 key={myorder._id} myorder={myorder}></MyOrderPage2>)
+            }
             
         </div>
     );

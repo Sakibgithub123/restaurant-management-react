@@ -1,9 +1,54 @@
 import { useLoaderData } from "react-router-dom";
 import banner4 from "../../assets/Banner-img/banner4.jpg"
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
+import Swal from 'sweetalert2'
 
 const FoodDetailsPage = () => {
     const singleFoodsDetails = useLoaderData()
+    const {user}=useContext(AuthContext);
     const {_id,food_name,image ,category,quantity,price,addby,food_origin,description}=singleFoodsDetails
+
+    const handleMyOrder=(e)=>{
+        e.preventDefault();
+
+        const form=e.target;
+        const food_name=form.food_name.value;
+        const image=form.image.value;
+        const email=form.email.value;
+        const category=form.category.value;
+        const quantity=form.quantity.value;
+        const price=form.price.value;
+        const addby=form.addby.value;
+        const food_origin=form.food_origin.value;
+        const description=form.description.value;
+
+        const addFood={food_name,image,email,category,quantity,
+             price,addby,food_origin,description}
+             console.log(addFood)
+
+             fetch('http://localhost:5000/myorderfood',{
+                method:'POST',
+                headers:{
+                    'content-type':'application/json'
+                },
+                body:JSON.stringify(addFood)
+
+             })
+             .then(res=>res.json())
+             .then(data => {
+                console.log(data);
+                if(data.insertedId){
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Food added successfully!',
+                        icon: 'success',
+                        confirmButtonText: 'Ok'
+                      })
+                }
+             })
+
+    }
     
     return (
         <div className="max-w-5xl mx-auto my-10 font-lato">
@@ -17,7 +62,19 @@ const FoodDetailsPage = () => {
                         <h2 className="text-base bg-[#2f2626] p-2 rounded-lg text-[#fff] font-semibold">{food_origin}</h2>
                     </div>
                     <h2 className="text-base  text-[#392623] font-semibold">Made By : {addby}</h2>
-                    <button className="bg-[#2f2626] underline italic text-[#fff] py-2 px-4 font-semibold rounded">Order Now</button>
+                   <form onSubmit={handleMyOrder}>
+                    <input type="text" name="food_name" value={food_name} />
+                    <input type="text" name="image" value={image} />
+                    <input type="text" name="email" value={user.email} />
+                    <input type="text" name="category" value={category} />
+                    <input type="text" name="quantity" value={quantity} />
+                    <input type="text" name="price" value={price} />
+                    <input type="text" name="addby" value={addby} />
+                    <input type="text" name="food_origin" value={food_origin} />
+                    <input type="text" name="description" value={description} />
+
+                   <button className="bg-[#2f2626] underline italic text-[#fff] py-2 px-4 font-semibold rounded">Order Now</button>
+                   </form>
                     <h4 className="text-lg text-[#392623] font-medium">Description :</h4>
                     <p className="text-base text-[#3e3e3e] font-medium leading-8">
                         {description}

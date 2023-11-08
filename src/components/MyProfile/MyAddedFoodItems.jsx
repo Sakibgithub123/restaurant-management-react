@@ -10,7 +10,7 @@ const MyAddedFoodItems = () => {
     const email=user.email;
     
     useEffect(() => {
-        fetch(`http://localhost:5000/food/${email}`)
+        fetch(`http://localhost:5000/myfood/${email}`)
             .then(res => res.json())
             .then(data => setMyAddedFood(data))
     }, [])

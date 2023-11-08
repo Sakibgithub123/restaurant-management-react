@@ -22,7 +22,7 @@ const MyAdd_A_FoodItem = () => {
              price,addby,food_origin,description}
              console.log(addFood)
 
-             fetch('http://localhost:5000/food',{
+             fetch('http://localhost:5000/myfood',{
                 method:'POST',
                 headers:{
                     'content-type':'application/json'

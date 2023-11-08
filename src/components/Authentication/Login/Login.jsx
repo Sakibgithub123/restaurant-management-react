@@ -1,12 +1,12 @@
 import google from "../../../assets/Banner-img/Google.png"
 import { Link,  useLocation, useNavigate } from "react-router-dom";
-import image from "../../../assets/Banner-img/loginimage.jpg"
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 const Login = () => {
-    const {signInUser}=useContext(AuthContext)
+    const {signInUser,googleLogin}=useContext(AuthContext)
     const location=useLocation()
     const navigate=useNavigate()
+    // const [user, setUser] = useState(null)
     const [error,setError]=useState()
     const [emailError,setEmailError]=useState()
     const [passwordError,setPasswordError]=useState()
@@ -40,6 +40,19 @@ const Login = () => {
         })
 
     }
+    const handleGoogleLogin = () => {
+        googleLogin()
+            .then(result => {
+                const logedInUser = result.user
+                console.log(logedInUser)
+                // setUser(logedInUser)
+                navigate(location?.state ? location.state : '/')
+            })
+            .catch(error => {
+                console.error('error', error.message)
+            })
+
+    }
     return (
         <div className="hero min-h-screen ">
            {/* bg-[#5b7c99] */}
@@ -50,9 +63,9 @@ const Login = () => {
                 {/* style={{backgroundImage: `url(${image})`}} */}
                 <div className="card flex-shrink-0 w-full max-w-md shadow-2xl bg-[#2f2626]">
                 <h3 className="font-semibold text-2xl text-[#fff]">Login Here</h3>
+                <button onClick={handleGoogleLogin} className="font-semibold text-lg  border p-2 border-[#fff]  text-[#fff] flex flex-row justify-center"><span>Login with Google</span> <img className="pl-2" width={23} height={5} src={google} alt="" /></button>
                 {/* <h3 className="font-semibold text-3xl  border p-2 border-[#fff]  text-[#fff]">Login Here</h3> */}
                     <form onSubmit={handlelogin} className="card-body">
-                    <button className="font-semibold text-lg  border p-2 border-[#fff]  text-[#fff] flex flex-row justify-center"><span>Login with Google</span> <img className="pl-2" width={23} height={5} src={google} alt="" /></button>
                     {
                            error && <p className="text-lg text-red-900 font-medium">{error}</p> 
                         }

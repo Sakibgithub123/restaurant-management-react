@@ -29,6 +29,7 @@ const Header = () => {
                             <li><NavLink to={"/myAddedFood"}>My added food items</NavLink></li>
                             <li><NavLink to={"/myAddAfoodItem"}>Add a food item</NavLink></li>
                             <li><NavLink to={"/myOrderPage"}>My ordered food items</NavLink></li>
+                            
                         </ul>
                     </details>
                 </li>
