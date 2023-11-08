@@ -26,8 +26,17 @@ const FoodDetailsPage = () => {
         const addFood={food_name,image,email,category,quantity,
              price,addby,food_origin,description}
              console.log(addFood)
-
-             fetch('http://localhost:5000/myorderfood',{
+             Swal.fire({
+                title: "Are you sure?",
+                text: "You want to order this item!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, order it!"
+              }).then((result) => {
+                if (result.isConfirmed) {
+                    fetch('http://localhost:5000/myorderfood',{
                 method:'POST',
                 headers:{
                     'content-type':'application/json'
@@ -40,13 +49,16 @@ const FoodDetailsPage = () => {
                 console.log(data);
                 if(data.insertedId){
                     Swal.fire({
-                        title: 'Success!',
-                        text: 'Food added successfully!',
-                        icon: 'success',
-                        confirmButtonText: 'Ok'
-                      })
+                        title: "Order!",
+                        text: "Your order completed.",
+                        icon: "success"
+                      });
                 }
              })
+                  
+                }
+              });
+             
 
     }
     
