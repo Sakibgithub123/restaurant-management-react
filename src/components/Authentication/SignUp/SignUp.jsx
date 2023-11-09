@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import image from "../../../assets/Banner-img/loginimage.jpg"
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import Swal from 'sweetalert2'
 const SignUp = () => {
     const {createUser}=useContext(AuthContext);
     const [error,setError]=useState()
@@ -54,6 +55,11 @@ const SignUp = () => {
         createUser(email,password)
         .then(result=>{
             console.log(result.user)
+            Swal.fire({
+                title: "Good job!",
+                text: "Sign up success!",
+                icon: "success"
+              });
         })
         .catch(error=>{
             console.error(error);

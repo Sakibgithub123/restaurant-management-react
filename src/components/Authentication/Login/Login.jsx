@@ -2,6 +2,7 @@ import google from "../../../assets/Banner-img/Google.png"
 import { Link,  useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import Swal from 'sweetalert2'
 const Login = () => {
     const {signInUser,googleLogin}=useContext(AuthContext)
     const location=useLocation()
@@ -32,6 +33,11 @@ const Login = () => {
         signInUser(email,password)
         .then(result=>{
             console.log(result.user)
+            Swal.fire({
+                title: "Good job!",
+                text: "Login success!",
+                icon: "success"
+              });
             navigate(location?.state? location.state : "/")
         })
         .catch(error=>{
@@ -55,12 +61,7 @@ const Login = () => {
     }
     return (
         <div className="hero min-h-screen ">
-           {/* bg-[#5b7c99] */}
-                {/* <div className="text-center lg:text-left">
-                   <img src={image} alt="" className="rounded border-[2px] border-[#2f2626]" />
-                </div> */}
-                {/* bg-[#e5e9ec] */}
-                {/* style={{backgroundImage: `url(${image})`}} */}
+          
                 <div className="card flex-shrink-0 w-full max-w-md shadow-2xl my-20 bg-[#2f2626]">
                 <h3 className="font-semibold text-2xl text-[#fff]">Login Here</h3>
                 <button onClick={handleGoogleLogin} className="font-semibold text-lg  border p-2 border-[#fff]  text-[#fff] flex flex-row justify-center mt-3"><span>Login with Google</span> <img className="pl-2" width={23} height={5} src={google} alt="" /></button>

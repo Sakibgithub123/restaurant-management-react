@@ -15,7 +15,6 @@ import AddFood from './components/AddFood/AddFood.jsx';
 import Blog from './components/Blog/Blog.jsx';
 import AuthProvider from './components/Provider/AuthProvider.jsx';
 import UpdateFood from './components/AddFood/UpdateFood.jsx';
-import AllFood from './components/AllFood/AllFood.jsx';
 import AllFoodPage from './components/AllFood/AllFoodPage.jsx';
 import AboutUs from './components/AboutUs/AboutUs.jsx';
 import MyAddedFoodItems from './components/MyProfile/MyAddedFoodItems.jsx';
@@ -42,7 +41,6 @@ const router = createBrowserRouter([
       {
         path:"/allfood",
         element:<AllFoodPage></AllFoodPage>,
-        loader:()=>fetch('http://localhost:5000/foodcounts')
       },
      
       {
@@ -52,22 +50,22 @@ const router = createBrowserRouter([
       {
         path:"/addFood",
         element:<AddFood></AddFood>,
-        loader:()=>fetch('http://localhost:5000/food')
+        loader:()=>fetch('https://restaurant-management-server-theta.vercel.app/food')
       },
       {
         path:"/updateFood/:id",
         element:<UpdateFood></UpdateFood>,
-        loader:({params})=>fetch(`http://localhost:5000/food/${params.id}`)
+        loader:({params})=>fetch(`https://restaurant-management-server-theta.vercel.app/food/${params.id}`)
       },
       {
-        path:"/updateMyFood/:pid",
+        path:"/updateMyFood/:id",
         element:<UpdateMyAddedFood></UpdateMyAddedFood>,
-        loader:({params})=>fetch(`http://localhost:5000/myfood/${params.pid}`)
+        loader:({params})=>fetch(`https://restaurant-management-server-theta.vercel.app/food/${params.id}`)
       },
       {
         path:"/foodDetails/:id",
         element:<PrivateRoute><FoodDetailsPage></FoodDetailsPage></PrivateRoute>,
-        loader:({params})=>fetch(`http://localhost:5000/food/${params.id}`)
+        loader:({params})=>fetch(`https://restaurant-management-server-theta.vercel.app/food/${params.id}`)
        
       },
       {

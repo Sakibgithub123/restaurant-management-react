@@ -17,7 +17,7 @@ const FoodTableItem = ({foodItem,foodItems,setFoodItem}) => {
           }).then((result) => {
             if (result.isConfirmed) {
               
-              fetch(`http://localhost:5000/food/${_id}`,{
+              fetch(`https://restaurant-management-server-theta.vercel.app/food/${_id}`,{
                 method:'DELETE',
 
               })

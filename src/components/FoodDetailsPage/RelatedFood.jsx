@@ -5,7 +5,7 @@ const RelatedFood = ({singleFoodsDetails}) => {
     const [nameByFoods, setnameByFoodd] = useState([]);
     const {food_name}=singleFoodsDetails
     useEffect(() => {
-        fetch(`http://localhost:5000/foodname/${food_name}`)
+        fetch(`https://restaurant-management-server-theta.vercel.app/foodname/${food_name}`)
             .then(res => res.json())
             .then(data => setnameByFoodd(data))
     }, [])

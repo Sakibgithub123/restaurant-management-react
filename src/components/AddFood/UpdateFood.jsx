@@ -23,7 +23,7 @@ const UpdateFood = () => {
              price,addby,food_origin,description}
              console.log(updateFood)
 
-             fetch(`http://localhost:5000/food/${_id}`,{
+             fetch(`https://restaurant-management-server-theta.vercel.app/food/${_id}`,{
                 method:'PUT',
                 headers:{
                     'content-type':'application/json'
@@ -55,25 +55,25 @@ const UpdateFood = () => {
                     <label className="label">
                         <span className="label-text">Food Name</span>
                     </label>
-                    <input type="text" placeholder="Enter Food Name" name="food_name" value={food_name} className="input input-bordered " />
+                    <input type="text" placeholder="Enter Food Name" name="food_name" defaultValue={food_name} className="input input-bordered " />
                 </div>
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Food Image</span>
                     </label>
-                    <input type="text" placeholder="Enter Food Image Url" name="image" value={image} className="input input-bordered" />
+                    <input type="text" placeholder="Enter Food Image Url" name="image" defaultValue={image} className="input input-bordered" />
                 </div>
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Food Category</span>
                     </label>
-                    <input type="text" placeholder="Enter Food Category" name="category" value={category} className="input input-bordered" />
+                    <input type="text" placeholder="Enter Food Category" name="category" defaultValue={category} className="input input-bordered" />
                 </div>
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Quantity</span>
                     </label>
-                    <input type="text" placeholder="Enter quantity" name="quantity" value={quantity} className="input input-bordered" />
+                    <input type="text" placeholder="Enter quantity" name="quantity" defaultValue={quantity} className="input input-bordered" />
                 </div>
                 </div>
                <div>
@@ -81,19 +81,19 @@ const UpdateFood = () => {
                     <label className="label">
                         <span className="label-text">Price</span>
                     </label>
-                    <input type="text" placeholder="Enter Food Price" name="price" value={price} className="input input-bordered" />
+                    <input type="text" placeholder="Enter Food Price" name="price" defaultValue={price} className="input input-bordered" />
                 </div>
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Add By</span>
                     </label>
-                    <input type="text" placeholder="Enter Add By" name="addby" value={addby} className="input input-bordered" />
+                    <input type="text" placeholder="Enter Add By" name="addby" defaultValue={addby} className="input input-bordered" />
                 </div>
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Food Origin (Country)</span>
                     </label>
-                    <input type="text" placeholder="Enter Food Origin" name="food_origin" value={food_origin} className="input input-bordered" />
+                    <input type="text" placeholder="Enter Food Origin" name="food_origin" defaultValue={food_origin} className="input input-bordered" />
                 </div>
                </div>
                </div>
@@ -101,7 +101,7 @@ const UpdateFood = () => {
                     <label className="label">
                         <span className="label-text">Description </span>
                     </label>
-                    <textarea type="text" placeholder="Enter Food description..." name="description" value={description} className="input input-bordered h-40"  id="" cols="30" rows="40"></textarea>
+                    <textarea type="text" placeholder="Enter Food description..." name="description" defaultValue={description} className="input input-bordered h-40"  id="" cols="30" rows="40"></textarea>
                 </div>
                 <div className="form-control mt-6">
                     {/* <button type="submit" className=" btn btn-outline text-red-900 py-2 px-4 font-semibold rounded">Add Item</button> */}

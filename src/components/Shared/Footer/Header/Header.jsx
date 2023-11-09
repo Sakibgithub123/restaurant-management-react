@@ -19,13 +19,13 @@ const Header = () => {
         <li><NavLink to={"/addFood"}>Add Food</NavLink> </li>
         {
             user ?
-                <div className="flex-none">
-                    <ul className="menu menu-horizontal px-1">
+                <div className="flex-none ">
+                    <ul className="menu menu-horizontal px-1 p-0 m-0">
                         {/* <li><a>Link</a></li> */}
                         <li>
                             <details>
                                 <summary>
-                                    My Profile<div className="avatar">
+                                    My Profile<div className="avatar ">
                                         <div className="w-8 rounded">
                                             <img src={user.photoURL}  />
                                         </div>
@@ -51,20 +51,20 @@ const Header = () => {
 
     </>
     return (
-        <div className="navbar bg-[#2f2626] font-lato">
+        <div className="navbar bg-[#2f2626]  font-lato">
             <div className="navbar-start">
                 <div className="dropdown">
-                    <label tabIndex={0} className="btn btn-ghost lg:hidden">
+                    <label tabIndex={0} className=" text-[#894444] lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
-                    <ul tabIndex={0} className="menu menu-sm dropdown-content  mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 text-[#fff]">
+                    <ul tabIndex={0} className="menu menu-sm dropdown-content  mt-3 z-[1] p-2 shadow bg-[#894444] rounded-box w-52 text-[#fff]">
                         {navItems}
                     </ul>
                 </div>
                 <a className="btn btn-ghost normal-case text-xl"><img src={logo} width={60} alt="" /></a>
             </div>
-            <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal  text-xl text-[#fff] bg-[#894444] bg-opacity-12 px-4 rounded-lg">
+            <div className="navbar-center justify-center items-center hidden lg:flex">
+                <ul className="menu menu-horizontal  text-xl text-[#fff]  px-4 rounded-lg">
                     {navItems}
                 </ul>
             </div>
@@ -72,11 +72,11 @@ const Header = () => {
                 {/* <a className="btn">Button</a> */}
                 {
                     user ?
-                        <button onClick={handleLogout} className="btn btn-outline text-[#894444]">LogOut </button>
+                        <button onClick={handleLogout} className="btn btn-outline text-[#fff]">LogOut </button>
                         :
                         <div className="space-x-5">
-                            <li className="btn btn-outline text-[#894444]"><NavLink to={"/signup"}>Sign Up</NavLink> </li>
-                            <li className="btn btn-outline text-[#894444]"><NavLink to={"/login"}>Login</NavLink> </li>
+                            <li className="btn btn-outline text-[#fff]"><NavLink to={"/signup"}>Sign Up</NavLink> </li>
+                            <li className="btn btn-outline text-[#fff]"><NavLink to={"/login"}>Login</NavLink> </li>
                         </div>
                 }
 

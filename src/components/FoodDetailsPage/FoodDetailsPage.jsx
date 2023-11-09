@@ -45,7 +45,7 @@ const FoodDetailsPage = () => {
                 confirmButtonText: "Yes, order it!"
               }).then((result) => {
                 if (result.isConfirmed) {
-                    fetch('http://localhost:5000/myorderfood',{
+                    fetch('https://restaurant-management-server-theta.vercel.app/myorderfood',{
                 method:'POST',
                 headers:{
                     'content-type':'application/json'
@@ -85,7 +85,7 @@ const FoodDetailsPage = () => {
         <div className="max-w-5xl mx-auto my-10 font-lato">
             <div className="flex flex-row rounded-lg">
                
-                <img className="rounded" src={image} alt="" />
+                <img className="rounded w-[500px] h-[400px]" src={image} alt="" />
                 <div className="text-left pl-8 space-y-4">
                     <h3 className="text-xl text-[#83837d] font-semibold">{food_name}</h3>
                     <h2 className="text-xl text-[#894444] font-semibold">Price : $ {price}/-</h2>
@@ -100,7 +100,7 @@ const FoodDetailsPage = () => {
                         <input type="hidden" name="email" value={useremail} />
                         <input type="hidden" name="category" value={category} />
                         <input type="hidden" name="available_quantity" value={quantity} />
-                        <p className="text-xl  text-[#392623] font-semibold my-3">Quantity : <input type="number" min={1} max={5} name="quantity" className="input input-bordered ml-3" /></p>
+                        <p className="text-xl  text-[#392623] font-semibold my-3">Quantity : <input type="number" defaultValue={1} min={1} name="quantity" className="input input-bordered ml-3" /></p>
                         <input type="hidden" name="price" value={price} />
                         <input type="hidden" name="addby" value={addby} />
                         <input type="hidden" name="food_origin" value={food_origin} />

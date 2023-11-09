@@ -15,7 +15,7 @@ const MyOrderPage2 = ({ myorder, myOrderFoods, setMyOrderFood }) => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/myorderfood/${_id}`, {
+                fetch(`https://restaurant-management-server-theta.vercel.app/myorderfood/${_id}`, {
                     method: 'DELETE',
 
                 })
@@ -39,16 +39,16 @@ const MyOrderPage2 = ({ myorder, myOrderFoods, setMyOrderFood }) => {
 
     }
     return (
-        <div className="card w-96 bg-[#2f2626] shadow-xl my-5 ">
+        <div className="card  bg-[#2f2626] shadow-xl my-5 ">
             <figure><img src={image} alt="Shoes" /></figure>
             <div className="card-body space-y-2">
                 <div className="">
                     
                         <h2 className="text-2xl  p-2 rounded-lg text-[#83837d] font-semibold">{food_name}</h2>
-                        <h2 className="text-base  rounded-lg text-[#fff] font-semibold my-2 text-center">{date}</h2>
-                       <div className="flex justify-between my-2">
-                       <h2 className="text-base bg-secondary p-2 rounded-lg text-[#fff] font-semibold">$ {price}/-</h2>
-                        <h2 className="text-base bg-secondary p-2 rounded-lg text-[#fff] font-semibold">Qty : {quantity}</h2>
+                        <h2 className="text-base  rounded-lg text-[#fff] font-semibold my-2 text-center">Date : {date}</h2>
+                       <div className="flex justify-center gap-10 my-2">
+                       <h2 className="text-base bg-[#d6c774] p-2 rounded-lg text-[#fff] font-semibold">$ {price}/-</h2>
+                        <h2 className="text-base bg-[#d6c774] p-2 rounded-lg text-[#fff] font-semibold">Qty : {quantity}</h2>
                        </div>
                     
 

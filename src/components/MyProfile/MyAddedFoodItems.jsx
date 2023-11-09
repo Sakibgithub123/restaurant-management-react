@@ -10,7 +10,7 @@ const MyAddedFoodItems = () => {
     const email=user.email;
     
     useEffect(() => {
-        fetch(`http://localhost:5000/myfood/${email}`)
+        fetch(`https://restaurant-management-server-theta.vercel.app/myfood/${email}`)
             .then(res => res.json())
             .then(data => setMyAddedFood(data))
     }, [])

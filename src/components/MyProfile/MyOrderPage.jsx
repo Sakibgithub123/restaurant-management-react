@@ -10,7 +10,7 @@ const MyOrderPage = () => {
     const email=user.email;
     
     useEffect(() => {
-        fetch(`http://localhost:5000/myorderfood/${email}`)
+        fetch(`https://restaurant-management-server-theta.vercel.app/myorderfood/${email}`)
             .then(res => res.json())
             .then(data => setMyOrderFood(data))
     }, [])

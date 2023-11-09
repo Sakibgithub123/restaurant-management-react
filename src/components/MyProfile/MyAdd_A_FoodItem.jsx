@@ -22,7 +22,7 @@ const MyAdd_A_FoodItem = () => {
              price,addby,food_origin,description}
              console.log(addFood)
 
-             fetch('http://localhost:5000/myfood',{
+             fetch('https://restaurant-management-server-theta.vercel.app/myfood',{
                 method:'POST',
                 headers:{
                     'content-type':'application/json'
@@ -44,11 +44,11 @@ const MyAdd_A_FoodItem = () => {
              })
     }
     return (
-        <div className="hero min-h-screen my-10">
-                <div className="card flex-shrink-0 w-full max-w-4xl shadow-2xl mt-10 bg-[#2f2626]">
+        <div className="md:hero min-h-screen my-10">
+                <div className="p-2md: p-5 md:card md:flex-shrink-0   md:max-w-4xl shadow-2xl mt-10 bg-[#2f2626]">
                     <h3 className="text-2xl text-[#fff] font-semibold">Add Food Form</h3>
                     <form onSubmit={handleMyAddFood} >
-                       <div className="grid grid-cols-2 gap-4">
+                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                        <div>
                         <div className="form-control">
                             <label className="label">
@@ -92,7 +92,7 @@ const MyAdd_A_FoodItem = () => {
                             <label className="label">
                                 <span className="label-text">Add By</span>
                             </label>
-                            <input type="text" placeholder="Enter Add By" name="addby" className="input input-bordered" />
+                            <input type="text" placeholder="Enter Add By" name="addby" value={user?.displayName} className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">

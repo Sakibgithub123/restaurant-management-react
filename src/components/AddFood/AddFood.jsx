@@ -25,8 +25,8 @@ const AddFood = () => {
         const addFood={food_name,image ,category,quantity,
              price,addby,food_origin,description}
              console.log(addFood)
-
-             fetch('http://localhost:5000/food',{
+//
+             fetch('https://restaurant-management-server-theta.vercel.app/food',{
                 method:'POST',
                 headers:{
                     'content-type':'application/json'
@@ -49,11 +49,11 @@ const AddFood = () => {
     }
     return (
         <div>
-            <div className="hero min-h-screen my-10">
-                <div className="card flex-shrink-0 w-full max-w-4xl shadow-2xl mt-10 bg-[#2f2626]">
+            <div className="md:hero min-h-screen my-10">
+                <div className="p-2 md:p-5 md:card flex-shrink-0 md:max-w-4xl shadow-2xl mt-10 bg-[#2f2626]">
                     <h3 className="text-2xl text-[#fff] font-semibold">Add Food Form</h3>
                     <form onSubmit={handleAddFood} >
-                       <div className="grid grid-cols-2 gap-4">
+                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                        <div>
                         <div className="form-control">
                             <label className="label">
