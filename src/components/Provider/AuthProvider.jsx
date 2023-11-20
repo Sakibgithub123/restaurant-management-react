@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import {GoogleAuthProvider,  createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import app from "../firebase/firebase.config";
+import axios from "axios";
 const auth = getAuth(app);
 
 export const AuthContext=createContext(null)
@@ -30,10 +31,27 @@ const AuthProvider = ({children}) => {
        return signOut(auth)
      }
      useEffect(()=>{
+       
        const unSubscribe= onAuthStateChanged(auth,currentUser=>{
+        setUser(currentUser);
+        const userEmail=currentUser?.email || user?.email
+        const logedinuser={email:userEmail}
+        setLoading(false);
             console.log('currentuser:',currentUser)
-            setUser(currentUser);
-            setLoading(false);
+            
+            if(currentUser){
+                axios.post('https://restaurant-management-server-two.vercel.app/jwt',logedinuser,{withCredentials:true})
+                .then(res=>{
+                    console.log('token response:',res.data)
+                })
+            }else{
+                axios.post('https://restaurant-management-server-two.vercel.app/logout',logedinuser,{withCredentials:true})
+                .then(res=>{
+                    console.log('token response:',res.data)
+                })
+
+            }
+            
         });
         return ()=>{
             unSubscribe()

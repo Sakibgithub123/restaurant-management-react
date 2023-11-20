@@ -3,6 +3,7 @@ import { Link,  useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from 'sweetalert2'
+import { Helmet } from "react-helmet";
 const Login = () => {
     const {signInUser,googleLogin}=useContext(AuthContext)
     const location=useLocation()
@@ -61,7 +62,9 @@ const Login = () => {
     }
     return (
         <div className="hero min-h-screen ">
-          
+           <Helmet>
+                <title>phero|Login</title>
+            </Helmet>
                 <div className="card flex-shrink-0 w-full max-w-md shadow-2xl my-20 bg-[#2f2626]">
                 <h3 className="font-semibold text-2xl text-[#fff]">Login Here</h3>
                 <button onClick={handleGoogleLogin} className="font-semibold text-lg  border p-2 border-[#fff]  text-[#fff] flex flex-row justify-center mt-3"><span>Login with Google</span> <img className="pl-2" width={23} height={5} src={google} alt="" /></button>
@@ -72,7 +75,7 @@ const Login = () => {
                         }
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Email</span>
+                                <span className="label-text text-[#fff]">Email</span>
                             </label>
                             <input type="email" placeholder="email" name="email" className="input input-bordered"  />
                         </div>
@@ -81,7 +84,7 @@ const Login = () => {
                         }
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Password</span>
+                                <span className="label-text text-[#fff]">Password</span>
                             </label>
                             <input type="password" placeholder="password" name="password" className="input input-bordered"  />
                             {

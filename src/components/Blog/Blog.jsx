@@ -1,9 +1,13 @@
 
+import { Helmet } from "react-helmet";
 import databaseImg from "../../assets/Banner-img/database.webp"
 import { BsCheckAll } from "react-icons/bs";
 const Blog = () => {
     return (
         <div className="max-w-full md:max-w-2xl mx-auto text-center">
+            <Helmet>
+                <title>Phero|Blog</title>
+            </Helmet>
             <h3 className="text-4xl text-[#894444] font-semibold my-5">Blog Page</h3>
             <h3 className="text-lg font-semibold text-[#2f2626] my-5 italic">Questions & Answered</h3>
             <img className="border-[2px] border-[#2f2626]" src={databaseImg} alt="" />

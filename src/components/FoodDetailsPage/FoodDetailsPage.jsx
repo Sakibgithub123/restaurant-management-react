@@ -3,13 +3,14 @@ import { useContext, useEffect, useState} from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from 'sweetalert2'
 import RelatedFood from "./RelatedFood";
+import { Helmet } from "react-helmet";
 
 const FoodDetailsPage = () => {
     const singleFoodsDetails = useLoaderData()
-    console.log(singleFoodsDetails)
+    // console.log(singleFoodsDetails)
     const { user } = useContext(AuthContext);
     const useremail=user.email;
-    const { _id, food_name, image, category, quantity, price, addby, food_origin, description } = singleFoodsDetails
+    const { food_name,email, image, category, quantity, price, addby, food_origin, description } = singleFoodsDetails
     const currentDate = new Date().toJSON().slice(0, 10);
 
 
@@ -45,7 +46,7 @@ const FoodDetailsPage = () => {
                 confirmButtonText: "Yes, order it!"
               }).then((result) => {
                 if (result.isConfirmed) {
-                    fetch('https://restaurant-management-server-theta.vercel.app/myorderfood',{
+                    fetch('https://restaurant-management-server-two.vercel.app/myorderfood',{
                 method:'POST',
                 headers:{
                     'content-type':'application/json'
@@ -83,8 +84,10 @@ const FoodDetailsPage = () => {
 
     return (
         <div className="max-w-5xl mx-auto my-10 font-lato">
+            <Helmet>
+                <title>Phero|Food Details</title>
+            </Helmet>
             <div className="flex flex-row rounded-lg">
-               
                 <img className="rounded w-[500px] h-[400px]" src={image} alt="" />
                 <div className="text-left pl-8 space-y-4">
                     <h3 className="text-xl text-[#83837d] font-semibold">{food_name}</h3>
@@ -106,8 +109,13 @@ const FoodDetailsPage = () => {
                         <input type="hidden" name="food_origin" value={food_origin} />
                         <input type="hidden" name="description" value={description} />
                         <input type="hidden" name="date" value={currentDate} />
+                        {
+                            useremail !==email?
+                            <button type="submit" className="bg-[#2f2626] underline italic text-[#fff] py-2 px-4 font-semibold rounded">Order Now</button>
+                            :"" 
+                        }
 
-                        <button type="submit" className="bg-[#2f2626] underline italic text-[#fff] py-2 px-4 font-semibold rounded">Order Now</button>
+                        
                     </form>
                     <h4 className="text-lg text-[#392623] font-medium">Description :</h4>
                     <p className="text-base text-[#3e3e3e] font-medium leading-8">

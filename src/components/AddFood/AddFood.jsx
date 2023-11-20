@@ -2,12 +2,15 @@ import { useLoaderData } from "react-router-dom";
 import FoodTableItem from "./FoodTableItem";
 import Swal from 'sweetalert2'
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 
 
 
 const AddFood = () => {
     const loaderfoodItems=useLoaderData()
+    const [allFoodItem,setallFoodItem]=useState(loaderfoodItems)
     const [foodItems,setFoodItem]=useState(loaderfoodItems)
+   
 
     const handleAddFood=(e)=>{
         e.preventDefault();
@@ -24,9 +27,9 @@ const AddFood = () => {
 
         const addFood={food_name,image ,category,quantity,
              price,addby,food_origin,description}
-             console.log(addFood)
-//
-             fetch('https://restaurant-management-server-theta.vercel.app/food',{
+            //  console.log(addFood)
+
+             fetch('https://restaurant-management-server-two.vercel.app/food',{
                 method:'POST',
                 headers:{
                     'content-type':'application/json'
@@ -49,6 +52,9 @@ const AddFood = () => {
     }
     return (
         <div>
+            <Helmet>
+                <title>Phero|Add Food</title>
+            </Helmet>
             <div className="md:hero min-h-screen my-10">
                 <div className="p-2 md:p-5 md:card flex-shrink-0 md:max-w-4xl shadow-2xl mt-10 bg-[#2f2626]">
                     <h3 className="text-2xl text-[#fff] font-semibold">Add Food Form</h3>
@@ -57,25 +63,25 @@ const AddFood = () => {
                        <div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Food Name</span>
+                                <span className="label-text text-[#fff]">Food Name</span>
                             </label>
                             <input type="text" placeholder="Enter Food Name" name="food_name" className="input input-bordered " />
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Food Image</span>
+                                <span className="label-text text-[#fff]">Food Image</span>
                             </label>
                             <input type="text" placeholder="Enter Food Image Url" name="image" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Food Category</span>
+                                <span className="label-text text-[#fff]">Food Category</span>
                             </label>
                             <input type="text" placeholder="Enter Food Category" name="category" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Quantity</span>
+                                <span className="label-text text-[#fff]">Quantity</span>
                             </label>
                             <input type="text" placeholder="Enter quantity" name="quantity" className="input input-bordered" />
                         </div>
@@ -83,19 +89,19 @@ const AddFood = () => {
                        <div>
                        <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Price</span>
+                                <span className="label-text text-[#fff]">Price</span>
                             </label>
                             <input type="text" placeholder="Enter Food Price" name="price" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Add By</span>
+                                <span className="label-text text-[#fff]">Add By</span>
                             </label>
                             <input type="text" placeholder="Enter Add By" name="addby" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Food Origin (Country)</span>
+                                <span className="label-text text-[#fff]">Food Origin (Country)</span>
                             </label>
                             <input type="text" placeholder="Enter Food Origin" name="food_origin" className="input input-bordered" />
                         </div>
@@ -103,7 +109,7 @@ const AddFood = () => {
                        </div>
                        <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Description </span>
+                                <span className="label-text text-[#fff]">Description </span>
                             </label>
                             <textarea type="text" placeholder="Enter Food description..." name="description" className="input input-bordered h-40"  id="" cols="30" rows="40"></textarea>
                         </div>
@@ -138,7 +144,7 @@ const AddFood = () => {
                         {/* row 1 */}
 
                         {
-                            foodItems.map(foodItem=><FoodTableItem key={foodItem._id} foodItem={foodItem} foodItems={foodItems} setFoodItem={setFoodItem} ></FoodTableItem>)
+                            allFoodItem.map(foodItem=><FoodTableItem key={foodItem._id} foodItem={foodItem} foodItems={foodItems} setFoodItem={setFoodItem} ></FoodTableItem>)
                         }
 
                         

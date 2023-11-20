@@ -1,25 +1,44 @@
 import { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import MyOrderPage2 from "./MyOrderPage2";
+import { Helmet } from "react-helmet";
 
 
 const MyOrderPage = () => {
     const [myOrderFoods, setMyOrderFood] = useState([]);
+    const [OrderFoods, setOrderFood] = useState([]);
     const {user}=useContext(AuthContext)
-    const email=user.email;
+
+   
     
     useEffect(() => {
-        fetch(`https://restaurant-management-server-theta.vercel.app/myorderfood/${email}`)
+        fetch(`https://restaurant-management-server-two.vercel.app/myorderfood/${user.email}`)
             .then(res => res.json())
-            .then(data => setMyOrderFood(data))
-    }, [])
+            .then(data => {
+                setMyOrderFood(data)
+                setOrderFood(data)
+            })
+    }, [user.email])
+    // useEffect(() => {
+    //     fetch('https://restaurant-management-server-two.vercel.app/myorderfood',{credentials:'include'})
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             setMyOrderFood(data)
+    //             setOrderFood(data)
+    //         })
+    // }, [])
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div>
+            <Helmet>
+                <title>Phero|MyOrder</title>
+            </Helmet>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            
             {
-                 myOrderFoods.map(myorder=><MyOrderPage2 key={myorder._id} myorder={myorder} myOrderFoods={myOrderFoods} setMyOrderFood={setMyOrderFood}></MyOrderPage2>)
+                 OrderFoods.map(myorder=><MyOrderPage2 key={myorder._id} myorder={myorder} myOrderFoods={myOrderFoods} setMyOrderFood={setMyOrderFood}></MyOrderPage2>)
             }
             
+        </div>
         </div>
     );
 };

@@ -32,7 +32,7 @@ const router = createBrowserRouter([
     children:[
       {
         path:"/",
-        element:<Home></Home>
+        element:<Home title="Phero|Home"></Home>
       },
       {
         path:"/about",
@@ -41,6 +41,7 @@ const router = createBrowserRouter([
       {
         path:"/allfood",
         element:<AllFoodPage></AllFoodPage>,
+        loader:()=>fetch('https://restaurant-management-server-two.vercel.app/foodcount')
       },
      
       {
@@ -50,35 +51,35 @@ const router = createBrowserRouter([
       {
         path:"/addFood",
         element:<AddFood></AddFood>,
-        loader:()=>fetch('https://restaurant-management-server-theta.vercel.app/food')
+        loader:()=>fetch('https://restaurant-management-server-two.vercel.app/food')
       },
       {
         path:"/updateFood/:id",
         element:<UpdateFood></UpdateFood>,
-        loader:({params})=>fetch(`https://restaurant-management-server-theta.vercel.app/food/${params.id}`)
+        loader:({params})=>fetch(`https://restaurant-management-server-two.vercel.app/food/${params.id}`)
       },
       {
         path:"/updateMyFood/:id",
-        element:<UpdateMyAddedFood></UpdateMyAddedFood>,
-        loader:({params})=>fetch(`https://restaurant-management-server-theta.vercel.app/food/${params.id}`)
+        element:<PrivateRoute><UpdateMyAddedFood></UpdateMyAddedFood></PrivateRoute>,
+        loader:({params})=>fetch(`https://restaurant-management-server-two.vercel.app/food/${params.id}`)
       },
       {
         path:"/foodDetails/:id",
         element:<PrivateRoute><FoodDetailsPage></FoodDetailsPage></PrivateRoute>,
-        loader:({params})=>fetch(`https://restaurant-management-server-theta.vercel.app/food/${params.id}`)
+        loader:({params})=>fetch(`https://restaurant-management-server-two.vercel.app/food/${params.id}`)
        
       },
       {
         path:"/myAddedFood",
-        element:<MyAddedFoodItems></MyAddedFoodItems>
+        element:<PrivateRoute><MyAddedFoodItems></MyAddedFoodItems></PrivateRoute>
       },
       {
         path:"/myAddAfoodItem",
-        element:<MyAdd_A_FoodItem></MyAdd_A_FoodItem>
+        element:<PrivateRoute><MyAdd_A_FoodItem></MyAdd_A_FoodItem></PrivateRoute>
       },
       {
         path:"/myOrderPage",
-        element:<MyOrderPage></MyOrderPage>
+        element:<PrivateRoute><MyOrderPage></MyOrderPage></PrivateRoute>
       },
       {
         path:"/signup",

@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import banner1 from "../../assets/Banner-img/banner1.jpg"
 import banner2 from "../../assets/Banner-img/banner2.jpg"
 import { BsCheckAll } from "react-icons/bs";
@@ -5,6 +6,9 @@ import { BsCheckAll } from "react-icons/bs";
 const AboutUs = () => {
     return (
         <div>  
+             <Helmet>
+                <title>phero|About</title>
+            </Helmet>
             <div className="hero my-5 font-lato">
             <div className="hero-content flex-col justify-around lg:flex-row-reverse gap-10 ">
                 <div className="text-center lg:text-left md:w-1/3">

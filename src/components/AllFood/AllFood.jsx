@@ -1,12 +1,19 @@
+import { useContext } from "react";
+import { Helmet } from "react-helmet";
 import { Link, useLoaderData } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 
 const AllFood = ({ allfood }) => {
-
-    const { _id, food_name, image, category, quantity, price } = allfood
+    
+    
+    const { _id, food_name,image, category, quantity, price } = allfood
     console.log(food_name)
     return (
         <div className="card  bg-[#2f2626] shadow-xl">
+             <Helmet>
+                <title>phero|All Food</title>
+            </Helmet>
             <figure><img className="w-full h-50" src={image} alt="Shoes" /></figure>
             <div className="card-body space-y-2">
                 <h2 className="text-3xl text-[#fff] font-semibold text-left  ">
@@ -17,8 +24,8 @@ const AllFood = ({ allfood }) => {
                 <div className="card-actions justify-center md:gap-10">
                     <h2 className="text-base bg-[#894444] p-2 rounded-lg text-[#fff] font-semibold">{category}</h2>
                     <h2 className="text-base bg-[#d6c774] p-2 rounded-lg text-[#2f2626] font-semibold">$ {price}/-</h2>
-                </div>
-                <Link to={`/foodDetails/${_id}`}> <button type="submit" className="btn w-full btn-outline text-[#fff]">View</button></Link>
+                </div>  
+                    <Link to={`/foodDetails/${_id}`}> <button type="submit" className="btn w-full btn-outline text-[#fff]">View</button></Link>
             </div>
         </div>
         // FFD700

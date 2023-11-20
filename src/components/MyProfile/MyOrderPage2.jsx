@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+
 import Swal from 'sweetalert2'
 
 const MyOrderPage2 = ({ myorder, myOrderFoods, setMyOrderFood }) => {
@@ -15,7 +15,7 @@ const MyOrderPage2 = ({ myorder, myOrderFoods, setMyOrderFood }) => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`https://restaurant-management-server-theta.vercel.app/myorderfood/${_id}`, {
+                fetch(`https://restaurant-management-server-two.vercel.app/myorderfood/${_id}`, {
                     method: 'DELETE',
 
                 })
@@ -39,24 +39,26 @@ const MyOrderPage2 = ({ myorder, myOrderFoods, setMyOrderFood }) => {
 
     }
     return (
-        <div className="card  bg-[#2f2626] shadow-xl my-5 ">
-            <figure><img src={image} alt="Shoes" /></figure>
-            <div className="card-body space-y-2">
-                <div className="">
-                    
-                        <h2 className="text-2xl  p-2 rounded-lg text-[#83837d] font-semibold">{food_name}</h2>
-                        <h2 className="text-base  rounded-lg text-[#fff] font-semibold my-2 text-center">Date : {date}</h2>
-                       <div className="flex justify-center gap-10 my-2">
-                       <h2 className="text-base bg-[#d6c774] p-2 rounded-lg text-[#fff] font-semibold">$ {price}/-</h2>
-                        <h2 className="text-base bg-[#d6c774] p-2 rounded-lg text-[#fff] font-semibold">Qty : {quantity}</h2>
-                       </div>
-                    
-
+        <div>
+          
+                 <div className="card  bg-[#2f2626] shadow-xl my-5 ">
+                <figure><img src={image} alt="Shoes" /></figure>
+                <div className="card-body space-y-2">
+                    <div className="">
+                        {/* <h3 className='text -3xl text-[#fff]'>{myOrderFoods.length}</h3> */}
+                        <h2 className="text-2xl   rounded-lg text-[#83837d] font-semibold">{food_name}</h2>
+                        <h2 className="text-xs  rounded-lg text-[#fff] font-bold my-2 text-center">Date : {date}</h2>
+                        <div className="flex justify-center gap-10 my-2">
+                            <h2 className="text-base bg-[#d6c774] p-2 rounded-lg text-[#fff] font-semibold">$ {price}/-</h2>
+                            <h2 className="text-base bg-[#d6c774] p-2 rounded-lg text-[#fff] font-semibold">Qty : {quantity}</h2>
+                        </div>
+                    </div>
+                    <h2 className="text-base bg-[#894444] p-2 rounded-lg text-[#dad0d0] font-semibold"><span className="text-[#fff]">AddedBy : </span>{addby}</h2>
+                    <button onClick={() => handleDelete(_id)} className="btn w-full btn-outline text-[#fff]">Delete</button>
                 </div>
-                <h2 className="text-base bg-[#894444] p-2 rounded-lg text-[#dad0d0] font-semibold"><span className="text-[#fff]">AddedBy : </span>{addby}</h2>
-                <button onClick={() => handleDelete(_id)} className="btn w-full btn-outline text-[#fff]">Delete</button>
             </div>
         </div>
+
     );
 };
 

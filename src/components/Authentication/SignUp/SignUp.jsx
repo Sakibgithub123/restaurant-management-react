@@ -4,6 +4,7 @@ import image from "../../../assets/Banner-img/loginimage.jpg"
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from 'sweetalert2'
+import { Helmet } from "react-helmet";
 const SignUp = () => {
     const {createUser}=useContext(AuthContext);
     const [error,setError]=useState()
@@ -33,9 +34,9 @@ const SignUp = () => {
          if(email.valueOf === ''){
             setEmailError('Email field is required')
         }
-         if(photo.valueOf === ''){
-            setPhotoError('Photo Url field is required')
-        }
+        //  if(photo.valueOf === ''){
+        //     setPhotoError('Photo Url field is required')
+        // }
 
         if(password.valueOf === ''){
             setPasswordError('Password field is required')
@@ -69,12 +70,9 @@ const SignUp = () => {
     }
     return (
         <div className="hero min-h-screen ">
-           {/* bg-[#5b7c99] */}
-            {/* <div className="hero-content flex-col lg:flex-row"> */}
-
-                {/* <div className="text-center lg:text-left">
-                   <img src={image} alt="" className="rounded border-[2px] border-[#2f2626]" />
-                </div> */}
+          <Helmet>
+                <title>Phero|Signup</title>
+            </Helmet>
                 <div className="card flex-shrink-0 w-full max-w-md shadow-2xl  my-20 bg-[#2f2626]">
                 <h3 className="font-semibold text-2xl  border p-2 border-[#fff]  text-[#fff]">Signup Here</h3>
                     <form onSubmit={handleSignup} className="card-body">
@@ -84,7 +82,7 @@ const SignUp = () => {
                         }
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Name</span>
+                                <span className="label-text text-[#fff]">Name</span>
                             </label>
                             <input type="text" placeholder="Enter name.." name="name" className="input input-bordered"  />
                         </div>
@@ -93,7 +91,7 @@ const SignUp = () => {
                         }
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Email</span>
+                                <span className="label-text text-[#fff]">Email</span>
                             </label>
                             <input type="text" placeholder="Enter email.." name="email" className="input input-bordered"  />
                         </div>
@@ -102,7 +100,7 @@ const SignUp = () => {
                         }
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Photo URL</span>
+                                <span className="label-text text-[#fff]">Photo URL</span>
                             </label>
                             <input type="text" placeholder="Enter photo url.." name="photo" className="input input-bordered"  />
                         </div>
@@ -111,7 +109,7 @@ const SignUp = () => {
                         }
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Password</span>
+                                <span className="label-text text-[#fff]">Password</span>
                             </label>
                             <input type="password" placeholder="password" name="password" className="input input-bordered"  />
                         </div>
